@@ -71,13 +71,28 @@ const messageBox = function(messageText, color) {
   var elm = document.createElement('a-text');
   elm.id = 'msgBox';
   elm.setAttribute('value', messageText);
-  elm.setAttribute('position', '0 0.0  -3.5');
+  elm.setAttribute('position', '0 -2.0  -3.5');
 
   elm.setAttribute('align', 'center');
   elm.setAttribute('color', color);
   elm.setAttribute('width', '8');
   elm.setAttribute('material', 'color: #fff');
   elm.setAttribute('geometry', 'primitive:plane; height: 0.7; width: 2;');
+  return elm;
+}
+/** Startのテキスト */
+const startBox = function(messageText) {
+  removeObject('startBox');
+  var elm = document.createElement('a-text');
+  elm.id = 'startBox';
+  elm.setAttribute('value', messageText);
+  elm.setAttribute('position', '0 0.0  -3.5');
+
+  elm.setAttribute('align', 'center');
+  elm.setAttribute('color', "#00f");
+  elm.setAttribute('width', '8');
+  elm.setAttribute('material', 'color: #fff');
+  elm.setAttribute('geometry', 'primitive:plane; height: 5; width: 5;');
   return elm;
 }
 // シーンのセット
@@ -131,10 +146,10 @@ const selections = function(sels, answer) {
   }
 }
 
-let msgBox = messageBox('Start', '#b62');
-scene.appendChild(msgBox);
-msgBox.addEventListener('click', function(){
-  removeObject('msgBox');
+let startBoxElem = startBox('Start');
+scene.appendChild(startBoxElem);
+startBoxElem.addEventListener('click', function(){
+  removeObject('startBox');
   setScene();
   document.querySelector('a-scene').enterVR()
 });

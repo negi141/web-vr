@@ -84,6 +84,7 @@ const messageBox = function(messageText, color) {
 const setScene = function(){
 
   removeObject('msgBox');
+  
   removeObject('sky');
   removeObject('question');
   removeObject('sel' + 0);
@@ -105,7 +106,7 @@ const removeObject = function(id){
 // 正解メソッド
 const wasCorrect = function (){
   scene.appendChild(messageBox('Correct!', '#26b'));
-  
+  document.querySelector('a-scene').enterVR()
   quizIndex++;
 
   // 3秒後にシーンを変える
@@ -126,4 +127,11 @@ const selections = function(sels, answer) {
     scene.appendChild(new_sel);
   }
 }
-setScene();
+
+let msgBox = messageBox('Start', '#b62');
+scene.appendChild(msgBox);
+msgBox.addEventListener('click', function(){
+  removeObject('msgBox');
+  setScene();
+  document.querySelector('a-scene').enterVR()
+});

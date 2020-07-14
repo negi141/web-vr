@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>title</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+ 
+  <link rel="stylesheet" href="stylesheet/common.css">
+</head>
+<body>
+<div>
+  <h1>hoge</h1>
+</div>
+  <a-scene>
+    <a-entity camera look-controls>
+
+      <a-entity
+      animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+      animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+      animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+      cursor="fuse: true;"
+      material="color: #2c8; shader: flat; opacity: 0.6"
+      position="0 0 -3"
+      geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.15;"></a-entity>
+    </a-entity>
+
+    </a-entity>
+  </a-scene>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

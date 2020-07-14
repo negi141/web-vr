@@ -71,7 +71,7 @@ const messageBox = function(messageText, color) {
   var elm = document.createElement('a-text');
   elm.id = 'msgBox';
   elm.setAttribute('value', messageText);
-  elm.setAttribute('position', '0 1.5  -3.5');
+  elm.setAttribute('position', '0 0.0  -3.5');
 
   elm.setAttribute('align', 'center');
   elm.setAttribute('color', color);
@@ -115,6 +115,9 @@ const wasCorrect = function (){
 // 不正解メソッド
 const wazIncorrect = function (index){
   scene.appendChild(messageBox('Incorrect!', '#b62'));
+  
+  // 2秒後にメッセージは消す
+  setTimeout(function(){removeObject('msgBox');}, 2000);
 };
 
 // 選択肢
